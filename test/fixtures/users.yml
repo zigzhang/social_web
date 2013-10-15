@@ -1,0 +1,14 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+zigzhang:
+    first_name: "David"
+    last_name: "Zhang"
+    profile_name: "zigzhang"
+    email: "david@boutwik.com"
+    encrypted_password: "password"
+    
+coco:
+    first_name: "Corentin"
+    last_name: "Geoffray"
+    profile_name: "coco"
+    email: "coco@boutwik.com"
+    encrypted_password: "password"
