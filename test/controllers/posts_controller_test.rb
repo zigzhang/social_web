@@ -29,13 +29,23 @@ class PostsControllerTest < ActionController::TestCase
     assert_redirected_to '/users/sign_in'
   end
 
-  test "create - shoulde create post when logged in" do
+  test "create - should create post when logged in" do
     sign_in users(:zigzhang)
     assert_difference('Post.count') do
       post :create, post: { content: @post.content, title: @post.title }
     end
 
     assert_redirected_to post_path(assigns(:post))
+  end
+
+  test "create - should create post for the current user when logged in" do
+    sign_in users(:zigzhang)
+    assert_difference('Post.count') do
+      post :create, post: { content: @post.content, title: @post.title, user_id: users(:coco).id }
+    end
+    
+    assert_redirected_to post_path(assigns(:post))
+    assert_equal assigns(:post).user_id, users(:zigzhang).id
   end
 
   test "should show post" do
@@ -65,6 +75,13 @@ class PostsControllerTest < ActionController::TestCase
     sign_in users(:zigzhang)
     patch :update, id: @post, post: { content: @post.content, title: @post.title }
     assert_redirected_to post_path(assigns(:post))
+  end
+  
+  test "update - should update post for the current user when logged in" do
+    sign_in users(:zigzhang)
+    patch :update, id: @post, post: { content: @post.content, title: @post.title, user_id: users(:coco).id }
+    assert_redirected_to post_path(assigns(:post))
+    assert_equal assigns(:post).user_id, users(:zigzhang).id
   end
 
   test "destroy - should be redirected when not logged in" do

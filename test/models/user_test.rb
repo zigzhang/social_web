@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
+  should have_many(:user_friendships)
+  should have_many(:friends)
   
   test "a user should have a unique mail" do
     user = User.new
@@ -37,6 +39,12 @@ class UserTest < ActiveSupport::TestCase
     user.profile_name = 'zigzhang1'
     assert user.save
     assert user.valid?
+  end
+  
+  test "that no error is raised when trying to access a friend list" do
+    assert_nothing_raised do
+      users(:zigzhang).friends
+    end
   end
   
 end

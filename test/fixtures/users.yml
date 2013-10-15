@@ -12,3 +12,10 @@ coco:
     profile_name: "coco"
     email: "coco@boutwik.com"
     encrypted_password: "password"
+    
+keke:
+    first_name: "Kevin"
+    last_name: "Rousseau"
+    profile_name: "keke"
+    email: "keke@boutwik.com"
+    encrypted_password: "password"
