@@ -16,7 +16,7 @@
       <tr>
         <td><%= post.title %></td>
         <td><%= post.content %></td>
-				<td><%= post.user.profile_name %></td>
+				<td><%= link_to post.user.profile_name, profile_path(post.user) %></td>
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -4,8 +4,11 @@ SocialWeb::Application.routes.draw do
   
   
   resources :posts
+  resources :user_friendships
+  
   get 'feed', to: 'posts#index', as: :feed
-  get '/:id', to: 'profiles#show'
+  get '/:id', to: 'profiles#show', as: 'profile'
+  
   root to: 'posts#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

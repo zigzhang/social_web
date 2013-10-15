@@ -14,5 +14,9 @@ class User < ActiveRecord::Base
                                  with: /\A[a-zA-Z0-9_-]+\z/,
                                  message: 'Must be formatted correctly.'
                                }
+                               
+  def to_param
+    profile_name
+  end
   
 end

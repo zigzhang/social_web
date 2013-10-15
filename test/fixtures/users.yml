@@ -4,7 +4,7 @@ zigzhang:
     last_name: "Zhang"
     profile_name: "zigzhang"
     email: "david@boutwik.com"
-    encrypted_password: "password"
+    encrypted_password: "$2a$10$Fh/Hm8RxDsuPTeBUr6864.GARlcmt7zF2WspaXGr3BIv2C27N.osq"
     
 coco:
     first_name: "Corentin"
