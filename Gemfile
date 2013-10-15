@@ -9,6 +9,10 @@ gem 'sqlite3'
 # Other Gems
 gem 'devise'
 
+group :test do
+  gem 'shoulda'
+end
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
