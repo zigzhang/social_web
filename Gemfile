@@ -8,9 +8,11 @@ gem 'sqlite3'
 
 # Other Gems
 gem 'devise'
+gem 'state_machine'
 
 group :test do
   gem 'shoulda'
+  gem 'factory_girl_rails'
 end
 
 # Use SCSS for stylesheets

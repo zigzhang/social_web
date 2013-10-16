@@ -1,0 +1,34 @@
+<h1>Friends</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Profile name</th>
+      <th>email</th>
+      <th>State</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_friendships.each do |friendship| %>
+			<% friend = friendship.friend %>
+	      <tr>
+	        <td><%= friend.first_name %></td>
+	        <td><%= friend.last_name %></td>
+					<td><%= link_to friend.profile_name, profile_path(friend) %></td>
+	        <td><%= friend.email %></td>
+					<% if friendship.pending? %>
+	        	<td>Friendship is pending <%= link_to 'Delete request', edit_user_friendship_path(friendship) %></td>
+					<% end %>
+					<% if friendship.requested? %>
+	        	<td>Friendship requested <%= link_to 'Accept friendship', edit_user_friendship_path(friendship) %></td>
+					<% end %>
+					<% if friendship.accepted? %>
+	        	<td>Friendship started <%= link_to 'Update friendship', edit_user_friendship_path(friendship) %></td>
+					<% end %>
+	      </tr>
+    <% end %>
+  </tbody>
+</table>

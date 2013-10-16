@@ -4,7 +4,11 @@ SocialWeb::Application.routes.draw do
   
   
   resources :posts
-  resources :user_friendships
+  resources :user_friendships do
+    member do
+      put :accept
+    end
+  end
   
   get 'feed', to: 'posts#index', as: :feed
   get '/:id', to: 'profiles#show', as: 'profile'

@@ -1,0 +1,18 @@
+<h1>Viewing friendship</h1>
+
+<% if @user_friendship.requested? %>
+	<h3>Do you really want to be friends with <%= @friend.profile_name %>?</h3>
+	
+	<%= form_for @user_friendship, url:accept_user_friendship_path(@user_friendship), method: :put do |form| %>
+		<%= form.submit "Accept Friendship" %>
+	<% end %>
+<% end %>
+
+<% if @user_friendship.accepted? %>
+	<h3>You are friend with <%= @friend.profile_name %></h3>
+<% end %>
+
+<%= form_for @user_friendship, url:user_friendship_path(@user_friendship), method: :delete do |form| %>
+	<%= form.submit "Delete Friendship" %>
+<% end %>
+
